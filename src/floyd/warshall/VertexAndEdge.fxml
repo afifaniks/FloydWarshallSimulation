@@ -3,15 +3,27 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="vertexPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floyd.warshall.VertexAndEdgeController">
+<AnchorPane id="AnchorPane" fx:id="vertexPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floyd.warshall.VertexAndEdgeController">
    <children>
-      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="697.0" layoutY="511.0" onAction="#nextButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #009968;" text="Next" textFill="WHITE" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="688.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="514.0">
+      <StackPane prefHeight="62.0" prefWidth="910.0" style="-fx-background-color: #1A237E;" AnchorPane.bottomAnchor="538.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-18.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Floyd Warshall Simulation" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="738.0" layoutY="511.0" onAction="#nextButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 0 30 30 0;" text="Next" textFill="WHITE" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="738.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="511.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -19,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="66.0" layoutY="511.0" onAction="#previousButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #009968;" text="Previous" textFill="WHITE">
+      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="64.0" layoutY="513.0" onAction="#previousButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 30 0 0 30;" text="Previous" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -27,49 +39,62 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <GridPane fx:id="vertexGrid" layoutX="152.0" layoutY="162.0" prefHeight="313.0" prefWidth="117.0" vgap="10.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <GridPane fx:id="vertexGrid" layoutX="186.0" layoutY="179.0" prefHeight="313.0" prefWidth="125.0" vgap="10.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
       </GridPane>
-      <GridPane fx:id="edgesGrid" hgap="5.0" layoutX="333.0" layoutY="162.0" prefHeight="313.0" prefWidth="366.0" vgap="10.0">
-        <columnConstraints>
+      <GridPane fx:id="edgesGrid" hgap="5.0" layoutX="347.0" layoutY="179.0" prefHeight="313.0" prefWidth="366.0" vgap="10.0">
+         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
       </GridPane>
-      <Label layoutX="152.0" layoutY="126.0" text="Vetex" textFill="#009968">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="338.0" layoutY="126.0" text="Edges" textFill="#009968">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
+      <Pane layoutX="167.0" layoutY="128.0" prefHeight="44.0" prefWidth="162.0" style="-fx-background-color: #283593;">
+         <children>
+            <Label layoutX="57.0" layoutY="13.0" text="Vetex" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="327.0" layoutY="128.0" prefHeight="44.0" prefWidth="406.0" style="-fx-background-color: #00838F;">
+         <children>
+            <Label layoutX="178.0" layoutY="13.0" text="Edges" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="83.0" prefHeight="16.0" prefWidth="565.0" text="Input vertex name and edge weights. Enter &quot;inp&quot; or &quot;i&quot; for Infinite value." textFill="#902323">
+         <effect>
+            <DropShadow />
+         </effect>
       </Label>
    </children>
 </AnchorPane>

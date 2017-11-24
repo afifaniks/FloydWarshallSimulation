@@ -89,13 +89,16 @@ public class TableViewerController implements Initializable {
                     label[i][j].setText(x);
 
                     if (i == ctr2 || j == ctr2) {
-                        tempPane[i][j].setStyle("-fx-background-color: #009968; -fx-border-color: #000000;");
+                        tempPane[i][j].setStyle("-fx-background-color: #283593; -fx-border-color: #000000;");
                         label[i][j].setTextFill(Paint.valueOf("white"));
                     } else {
                         if(edges[ctr][i][j] != edges[ctr - 1][i][j])
-                            label[i][j].setTextFill(Paint.valueOf("red"));
-                        
-                        tempPane[i][j].setStyle("-fx-border-color: #000000;");
+                        {
+                            label[i][j].setTextFill(Paint.valueOf("white"));
+                            tempPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #DD2C00");
+                        }
+                        else
+                            tempPane[i][j].setStyle("-fx-border-color: #000000;");
                         
                     }
                     pathGrid.add(tempPane[i][j], j, i);
@@ -117,7 +120,6 @@ public class TableViewerController implements Initializable {
             tablePane.getChildren().setAll(temp);
         }
         else{
-            System.out.println(ctr +" "+ ctr2);
             ctr2--;
             ctr--;
             
@@ -151,13 +153,16 @@ public class TableViewerController implements Initializable {
                     label[i][j].setText(x);
 
                     if (ctr2 >= 0 && (i == ctr2 || j == ctr2)) {
-                        tempPane[i][j].setStyle("-fx-background-color: #009968; -fx-border-color: #000000;");
+                        tempPane[i][j].setStyle("-fx-background-color: #283593; -fx-border-color: #000000;");
                         label[i][j].setTextFill(Paint.valueOf("white"));
                     } else {
                         if(ctr >= 1 && (edges[ctr][i][j] != edges[ctr - 1][i][j]))
-                            label[i][j].setTextFill(Paint.valueOf("red"));
-                        
-                        tempPane[i][j].setStyle("-fx-border-color: #000000;");
+                        {
+                            label[i][j].setTextFill(Paint.valueOf("white"));
+                            tempPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #DD2C00");
+                        }
+                        else
+                            tempPane[i][j].setStyle("-fx-border-color: #000000;");
                     }
                     pathGrid.add(tempPane[i][j], j, i);
 
