@@ -1,0 +1,24 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 23, 2017, 11:47:46 PM
+    Author     : void
+*/
+
+.jfx-snackbar-content{
+    -fx-background-color: #ff0000;
+    -fx-background-radius: 30 10 30 10;
+}
+
+.jfx-snackbar-toast{
+    -fx-text-fill: #ffffff;
+}
+
+.text-color{
+    -fx-fill: white;
+   
+}
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floyd.warshall.FXMLDocumentController">
+   <children>
+      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="688.0" layoutY="507.0" onAction="#nextButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: #009968;" text="Next" textFill="WHITE" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="688.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="514.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXComboBox fx:id="vertex" focusColor="#009968" layoutX="461.0" layoutY="283.0" prefHeight="35.0" prefWidth="72.0" unFocusColor="#009968" />
+      <Label layoutX="317.0" layoutY="291.0" text="Number of Vertex:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="295.0" layoutY="14.0" text="Floyd Warshall Simulation">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
