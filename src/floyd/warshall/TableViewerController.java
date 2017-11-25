@@ -6,7 +6,6 @@
 package floyd.warshall;
 
 import com.jfoenix.controls.JFXButton;
-import java.awt.Color;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,11 +17,9 @@ import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -35,11 +32,17 @@ public class TableViewerController implements Initializable {
     private static int ctr2 = -1;
     private static int ctr;
     public static double[][][] edges;
+    public static double[][][] sequence;
     private Pane[][] tempPane;
     private Label[][] label;
+    private Pane[][] seqPane;
+    private Label[][] sLabel;
     
     @FXML
     private Label pathLabel;
+    
+    @FXML
+    private Label sequenceLabel;
     
     @FXML
     private AnchorPane tablePane;
@@ -67,43 +70,68 @@ public class TableViewerController implements Initializable {
                 for (int j = 0; j < steps; j++) {
                     pathGrid.getChildren().removeAll(label[i][j]);
                     pathGrid.getChildren().removeAll(tempPane[i][j]);
+                    sequenceGrid.getChildren().removeAll(sLabel[i][j]);
+                    sequenceGrid.getChildren().removeAll(seqPane[i][j]);
                 }
             }
 
             pathLabel.setText("Step: " + ctr);
+            sequenceLabel.setText("Step: " + ctr);
+            
+            sequenceGrid.setAlignment(Pos.CENTER);
             pathGrid.setAlignment(Pos.CENTER);
 
             for (int i = 0; i < steps; i++) {
                 for (int j = 0; j < steps; j++) {
+                    
                     label[i][j] = new Label();
+                    sLabel[i][j] = new Label();
+                    
                     tempPane[i][j] = new Pane();
+                    seqPane[i][j] = new Pane();
+                    
+                    pathGrid.add(tempPane[i][j], j, i);
+                    sequenceGrid.add(seqPane[i][j], j, i);
 
                     String x = Double.toString(edges[ctr][i][j]);
+                    int y = (((int)sequence[ctr][i][j]));
 
                     label[i][j].setAlignment(Pos.CENTER);
+                    sLabel[i][j].setAlignment(Pos.CENTER);
 
                     if (x.equals("Infinity")) {
                         x = "∞";
                     }
 
                     label[i][j].setText(x);
-
+                    sLabel[i][j].setText(Integer.toString(y));
+                    
                     if (i == ctr2 || j == ctr2) {
                         tempPane[i][j].setStyle("-fx-background-color: #283593; -fx-border-color: #000000;");
+                        seqPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #B2DFDB");
+                        
                         label[i][j].setTextFill(Paint.valueOf("white"));
+                        
                     } else {
                         if(edges[ctr][i][j] != edges[ctr - 1][i][j])
                         {
                             label[i][j].setTextFill(Paint.valueOf("white"));
                             tempPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #DD2C00");
+                            
+                            sLabel[i][j].setTextFill(Paint.valueOf("white"));
+                            seqPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #DD2C00");
                         }
-                        else
-                            tempPane[i][j].setStyle("-fx-border-color: #000000;");
+                        else{
+                            tempPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #B2DFDB");
+                            seqPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #B2DFDB");
+                        }
                         
                     }
-                    pathGrid.add(tempPane[i][j], j, i);
 
                     GridPane.setHalignment(label[i][j], HPos.CENTER);
+                    GridPane.setHalignment(sLabel[i][j], HPos.CENTER);
+                    
+                    sequenceGrid.add(sLabel[i][j], j, i);
                     pathGrid.add(label[i][j], j, i);
 
                 }
@@ -127,46 +155,76 @@ public class TableViewerController implements Initializable {
                 for (int j = 0; j < steps; j++) {
                     pathGrid.getChildren().removeAll(label[i][j]);
                     pathGrid.getChildren().removeAll(tempPane[i][j]);
+                    sequenceGrid.getChildren().removeAll(sLabel[i][j]);
+                    sequenceGrid.getChildren().removeAll(seqPane[i][j]);
                 }
             }
             
             if(ctr == 0)
+            {
                 pathLabel.setText("Initial Path");
+                sequenceLabel.setText("Initial Sequence");
+            }
             else
+            {
                 pathLabel.setText("Step: " + ctr);
+                sequenceLabel.setText("Step: " + ctr);
+            }
             
+            sequenceGrid.setAlignment(Pos.CENTER);
             pathGrid.setAlignment(Pos.CENTER);
 
             for (int i = 0; i < steps; i++) {
                 for (int j = 0; j < steps; j++) {
+                    
                     label[i][j] = new Label();
+                    sLabel[i][j] = new Label();
+                    
                     tempPane[i][j] = new Pane();
+                    seqPane[i][j] = new Pane();
+                    
+                    pathGrid.add(tempPane[i][j], j, i);
+                    sequenceGrid.add(seqPane[i][j], j, i);
 
                     String x = Double.toString(edges[ctr][i][j]);
+                    int y = (((int)sequence[ctr][i][j]));
 
                     label[i][j].setAlignment(Pos.CENTER);
+                    sLabel[i][j].setAlignment(Pos.CENTER);
 
                     if (x.equals("Infinity")) {
                         x = "∞";
                     }
 
                     label[i][j].setText(x);
-
-                    if (ctr2 >= 0 && (i == ctr2 || j == ctr2)) {
+                    sLabel[i][j].setText(Integer.toString(y));
+                    
+                    if (i == ctr2 || j == ctr2) {
                         tempPane[i][j].setStyle("-fx-background-color: #283593; -fx-border-color: #000000;");
+                        seqPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #B2DFDB");
+                        
                         label[i][j].setTextFill(Paint.valueOf("white"));
+                        
                     } else {
-                        if(ctr >= 1 && (edges[ctr][i][j] != edges[ctr - 1][i][j]))
+                        if(ctr >= 1 && edges[ctr][i][j] != edges[ctr - 1][i][j])
                         {
                             label[i][j].setTextFill(Paint.valueOf("white"));
                             tempPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #DD2C00");
+                            
+                            sLabel[i][j].setTextFill(Paint.valueOf("white"));
+                            seqPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #DD2C00");
                         }
-                        else
-                            tempPane[i][j].setStyle("-fx-border-color: #000000;");
+                        else{
+                            tempPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #B2DFDB");
+                            seqPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #B2DFDB");
+                        }
+                        
                     }
-                    pathGrid.add(tempPane[i][j], j, i);
 
                     GridPane.setHalignment(label[i][j], HPos.CENTER);
+                    GridPane.setHalignment(sLabel[i][j], HPos.CENTER);
+                    
+                    sequenceGrid.add(sLabel[i][j], j, i);
                     pathGrid.add(label[i][j], j, i);
 
                 }
@@ -181,37 +239,60 @@ public class TableViewerController implements Initializable {
         ctr = -1; 
         
         tempPane = new Pane[steps][steps];
+        seqPane = new Pane[steps][steps];
+        
         label = new Label[steps][steps];
+        sLabel = new Label[steps][steps];
         
         pathLabel.setText("Initial Path");
+        sequenceLabel.setText("Initial Sequence");
+        
+        sequenceGrid.setAlignment(Pos.CENTER);
         pathGrid.setAlignment(Pos.CENTER);
         
         for (int i = 0; i < steps; i++) {
             for (int j = 0; j < steps; j++) {
+       
                 label[i][j] = new Label();
+                sLabel[i][j] = new Label();
+                
+                seqPane[i][j] = new Pane();
                 tempPane[i][j] = new Pane();
                 
-                String x = Double.toString(edges[0][i][j]);
+                String x = Double.toString(edges[0][i][j]); //Path
+                String y = Integer.toString((int)sequence[0][i][j]); //Sequence
                 
                 
                 label[i][j].setAlignment(Pos.CENTER);
+                sLabel[i][j].setAlignment(Pos.CENTER);
                 
+                
+                //Setting up Distance Table
                 if(x.equals("Infinity"))
                     x = "∞";
                 
                 label[i][j].setText(x);
+                sLabel[i][j].setText(y);
 
                
-                tempPane[i][j].setStyle("-fx-border-color: #000000;");
-                
+                tempPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #B2DFDB");
+                seqPane[i][j].setStyle("-fx-border-color: #000000; -fx-background-color: #B2DFDB");
+
                 pathGrid.add(tempPane[i][j], j, i);
+                sequenceGrid.add(seqPane[i][j], j, i);
+                
+                //label[i][j].setTextFill(Paint.valueOf("white"));
+                //sLabel[i][j].setTextFill(Paint.valueOf("white"));
 
                 GridPane.setHalignment(label[i][j], HPos.CENTER);
+                GridPane.setHalignment(sLabel[i][j], HPos.CENTER);
+
                 pathGrid.add(label[i][j], j, i);
-                
+                sequenceGrid.add(sLabel[i][j], j, i);
+
             }
         }
-        ctr++;   
+        ctr++;
     }    
     
 }

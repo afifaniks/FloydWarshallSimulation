@@ -106,7 +106,11 @@ public class VertexAndEdgeController implements Initializable {
         }
         
         if(valueTaker){
-            TableViewerController.edges = FloydWarshallAlgorithm.ShortestPathGenerator(value, vertexValue, edgesValue);
+            FloydWarshallAlgorithm tableGenerator = new FloydWarshallAlgorithm(value, vertexValue, edgesValue);
+            
+            TableViewerController.edges = tableGenerator.getPath();
+            TableViewerController.sequence = tableGenerator.getSequence();
+            
             AnchorPane temp = FXMLLoader.load(getClass().getResource("TableViewer.fxml"));
             vertexPane.getChildren().setAll(temp);
         }
