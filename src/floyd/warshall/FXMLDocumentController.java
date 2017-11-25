@@ -44,11 +44,6 @@ public class FXMLDocumentController implements Initializable {
         AnchorPane temp = FXMLLoader.load(getClass().getResource("VertexAndEdge.fxml"));
         rootPane.getChildren().setAll(temp);
     }
-    
-    static void getValue()
-    {
-        System.out.println(value);
-    }
 
     
     @Override

@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -12,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="tablePane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floyd.warshall.TableViewerController">
    <children>
-      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="732.0" layoutY="504.0" onAction="#nextButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 0 30 30 0;" text="Next" textFill="WHITE">
+      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="745.0" layoutY="511.0" onAction="#nextButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 0 30 30 0;" text="Next" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -20,7 +21,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="101.0" layoutY="504.0" onAction="#previousButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 30 0 0 30;" text="Previous" textFill="WHITE" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="748.0" AnchorPane.topAnchor="513.0">
+      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="77.0" layoutY="511.0" onAction="#previousButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 30 0 0 30;" text="Previous" textFill="WHITE" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="735.0" AnchorPane.topAnchor="511.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -73,7 +74,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="sequenceLabel" alignment="TOP_LEFT" layoutX="482.0" layoutY="82.0" prefHeight="41.0" prefWidth="172.0">
+      <Label fx:id="sequenceLabel" alignment="TOP_LEFT" layoutX="482.0" layoutY="82.0" prefHeight="41.0" prefWidth="241.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -84,8 +85,19 @@
                <font>
                   <Font size="20.0" />
                </font>
+               <effect>
+                  <Glow level="0.91" />
+               </effect>
             </Label>
          </children>
       </StackPane>
+      <JFXButton fx:id="autoPlay" buttonType="RAISED" layoutX="411.0" layoutY="511.0" onAction="#autoPlayButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1B5E20; -fx-background-radius: 30 0 30 0;" text="AutoPlay" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>
