@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -79,7 +80,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <StackPane prefHeight="62.0" prefWidth="910.0" style="-fx-background-color: #1A237E;">
+      <StackPane prefHeight="62.0" prefWidth="900.0" style="-fx-background-color: #1A237E;">
          <children>
             <Label text="Floyd Warshall Simulation" textFill="WHITE">
                <font>
@@ -90,6 +91,9 @@
                </effect>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </StackPane>
       <JFXButton fx:id="autoPlay" buttonType="RAISED" layoutX="411.0" layoutY="511.0" onAction="#autoPlayButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1B5E20; -fx-background-radius: 30 0 30 0;" text="AutoPlay" textFill="WHITE">
          <font>

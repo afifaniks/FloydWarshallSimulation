@@ -15,7 +15,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="vertexPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floyd.warshall.VertexAndEdgeController">
    <children>
-      <StackPane prefHeight="62.0" prefWidth="911.0" style="-fx-background-color: #1A237E;" AnchorPane.bottomAnchor="538.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-11.0" AnchorPane.topAnchor="0.0">
+      <StackPane prefHeight="62.0" prefWidth="900.0" style="-fx-background-color: #1A237E;" AnchorPane.bottomAnchor="538.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="Floyd Warshall Simulation" textFill="WHITE">
                <font>
@@ -26,6 +26,9 @@
                </effect>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </StackPane>
       <GridPane fx:id="vertexGrid" layoutX="186.0" layoutY="179.0" prefHeight="313.0" prefWidth="125.0" vgap="10.0">
          <columnConstraints>

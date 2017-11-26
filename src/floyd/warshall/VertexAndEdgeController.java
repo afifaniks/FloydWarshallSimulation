@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -24,7 +25,7 @@ import javafx.scene.paint.Color;
  * @author void
  */
 public class VertexAndEdgeController implements Initializable {
-    
+
     static int value;
     
     JFXTextField vertex[];
@@ -49,6 +50,7 @@ public class VertexAndEdgeController implements Initializable {
     void previousButtonAction(ActionEvent event) throws IOException {
         AnchorPane rootPane = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         vertexPane.getChildren().setAll(rootPane);
+        
     }
     
     @FXML
@@ -138,6 +140,6 @@ public class VertexAndEdgeController implements Initializable {
                 edges[i][j].setUnFocusColor(Color.web("#4d4d4d"));
                 edges[i][j].setPromptText("v"+(i+1)+"e"+(j+1));
                 edgesGrid.add(edges[i][j], j, i);
-            }           
+            }   
     }    
 }

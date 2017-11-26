@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -24,7 +25,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <StackPane prefHeight="62.0" prefWidth="910.0" style="-fx-background-color: #1A237E;">
+      <StackPane prefHeight="62.0" prefWidth="900.0" style="-fx-background-color: #1A237E;">
          <children>
             <Label text="Floyd Warshall Simulation" textFill="WHITE">
                <font>
@@ -35,8 +36,11 @@
                </effect>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </StackPane>
-      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="796.0" layoutY="499.0" onAction="#nextButtonAction" prefHeight="62.0" prefWidth="62.0" style="-fx-background-color: #1A237E; -fx-background-radius: 50 50 50 50;" text="Start" textFill="WHITE" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="796.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="499.0">
+      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="786.0" layoutY="499.0" onAction="#nextButtonAction" prefHeight="62.0" prefWidth="62.0" style="-fx-background-color: #1A237E; -fx-background-radius: 50 50 50 50;" text="Start" textFill="WHITE" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="786.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="499.0">
          <font>
             <Font size="14.0" />
          </font>

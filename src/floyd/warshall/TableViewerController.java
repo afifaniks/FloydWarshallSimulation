@@ -42,6 +42,7 @@ public class TableViewerController implements Initializable {
     private Pane[][] seqPane;
     private Label[][] sLabel;
     private static boolean toggle = true;
+    private static boolean startOver = false;
 
     @FXML
     private Label pathLabel;
@@ -70,6 +71,7 @@ public class TableViewerController implements Initializable {
     @FXML
     void autoPlayButtonAction(ActionEvent e) throws InterruptedException {
         if (toggle) {
+            startOver = false;
             toggle = false;
             autoPlay.setText("Stop!");
             autoPlay.setStyle("-fx-background-color: #DD2C00; -fx-background-radius: 30 30 30 30;");
@@ -155,8 +157,10 @@ public class TableViewerController implements Initializable {
                 }
 
                 if (ctr == steps) {
-
+                    startOver = true;
                     autoPlay.setText("AutoPlay");
+                    nextButton.setText("Start Over");
+                    nextButton.setStyle("-fx-background-radius: 0 0 0 0; -fx-padding: 0; -fx-background-color:  #DD2C00;");
                     autoPlay.setStyle("-fx-background-color:  #1B5E20; -fx-background-radius: 30 0 30 0;");
                     nextButton.setVisible(true);
                     previousButton.setVisible(true);
@@ -170,6 +174,11 @@ public class TableViewerController implements Initializable {
         } else {
             toggle = true;
             t.stop();
+
+            if (ctr != steps) {
+                nextButton.setText("Next");
+                nextButton.setStyle("-fx-background-radius:  0 30 30 0; -fx-background-color:  #1A237E;");
+            }
             autoPlay.setText("AutoPlay");
             autoPlay.setStyle("-fx-background-color:  #1B5E20; -fx-background-radius: 30 0 30 0;");
             nextButton.setVisible(true);
@@ -179,8 +188,13 @@ public class TableViewerController implements Initializable {
     }
 
     @FXML
-    void nextButtonAction(ActionEvent event) {
-        if (ctr < steps) {
+    void nextButtonAction(ActionEvent event) throws IOException {
+        
+        if(ctr == steps){
+            AnchorPane rootPane = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+            tablePane.getChildren().setAll(rootPane);
+        }
+        else if (ctr < steps) {
 
             ctr++;
             ctr2++;
@@ -253,12 +267,25 @@ public class TableViewerController implements Initializable {
 
                 }
             }
+            
+            if (ctr == steps) {
+                startOver = true;
+                nextButton.setText("Start Over");
+                nextButton.setStyle("-fx-background-radius: 0 0 0 0; -fx-padding: 0; -fx-background-color:  #DD2C00;");
+            }
 
         }
+        
+        
     }
 
     @FXML
     void previousButtonAction(ActionEvent event) throws IOException {
+        if (startOver) {
+            startOver = false;
+            nextButton.setText("Next");
+            nextButton.setStyle("-fx-background-radius:  0 30 30 0; -fx-background-color:  #1A237E;");
+        }
         if (ctr == 0) {
             AnchorPane temp = FXMLLoader.load(getClass().getResource("VertexAndEdge.fxml"));
             tablePane.getChildren().setAll(temp);

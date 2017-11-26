@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -51,6 +52,6 @@ public class FXMLDocumentController implements Initializable {
         ObservableList<Integer> list = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7);
         vertex.setItems(list);
         vertex.setValue(value);
-    }    
+    }  
     
 }
