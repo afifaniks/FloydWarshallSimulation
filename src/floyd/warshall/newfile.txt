@@ -1,0 +1,38 @@
+            AnchorPane temp = FXMLLoader.load(getClass().getResource("TableViewer.fxml"));
+            vertexPane.getChildren().setAll(temp);
+
+ int x = 1;
+        
+        for(int i = 0; i < step; i++)
+        {
+            switch(x++){
+                case 1:
+                    node1.setVisible(true);
+                    node1.setText(vertex[i]);
+                    break;
+                case 2:
+                    node2.setVisible(true);
+                    node2.setText(vertex[i]);
+                    break;
+                case 3:
+                    node3.setVisible(true);
+                    node3.setText(vertex[i]);
+                    break;
+                case 4:
+                    node4.setVisible(true);
+                    node4.setText(vertex[i]);
+                    break;
+                case 5:
+                    node5.setVisible(true);
+                    node5.setText(vertex[i]);
+                    break;
+                case 6:
+                    node6.setVisible(true);
+                    node6.setText(vertex[i]);
+                    break;
+                case 7:
+                    node7.setVisible(true);
+                    node7.setText(vertex[i]);
+                    break;
+            }
+        }

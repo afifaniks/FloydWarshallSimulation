@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floyd.warshall.CategoryChooserController">
+   <children>
+      <StackPane prefHeight="62.0" prefWidth="900.0" style="-fx-background-color: #1A237E;">
+         <children>
+            <Label text="Floyd Warshall Simulation" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <effect>
+                  <Glow level="0.81" />
+               </effect>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </StackPane>
+      <JFXButton fx:id="matrixButton" layoutX="389.0" layoutY="241.0" onAction="#matrixButtonHandler" prefHeight="54.0" prefWidth="188.0" style="-fx-background-color: #1A237E;" text="Matrix Representation" textFill="WHITE" />
+      <JFXButton fx:id="graphButton" layoutX="390.0" layoutY="333.0" onAction="#graphButtonHandler" prefHeight="54.0" prefWidth="188.0" style="-fx-background-color: #1A237E;" text="Graph Representation" textFill="WHITE" />
+      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="87.0" layoutY="521.0" onAction="#previousButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 30 0 0 30;" text="Previous" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>
