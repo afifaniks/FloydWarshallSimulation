@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.CubicCurve;
@@ -28,9 +29,14 @@ public class GraphViewerController implements Initializable {
     public static String[] vertex;
     public static double[][][] shortestPath;
     public static int step;
-
+    private static String[] colors = {"#4A148C", "#00838F", "#2E7D32", "#283593", "#4E342E", "#37474F", "#827717"};
+    public static boolean[] selection = new boolean[7];
+    
     @FXML
     private AnchorPane pane;
+    
+    @FXML
+    private Label resultLabel;
 
     @FXML
     private JFXButton previousButton;
@@ -48,12 +54,15 @@ public class GraphViewerController implements Initializable {
         int[] layoutY = {221, 362, 362, 80, 80, 221, 221};
         
         final int nodeRadius = 35;
-        
-        String[] colors = {"#4A148C", "#00838F", "#2E7D32", "#283593", "#4E342E", "#37474F", "#827717"};
-        
+      
         JFXButton[] btn = new JFXButton[7];
         Line[][] newEdge = new Line[7][7];
         boolean[][] flag = new boolean[7][7];
+        
+        for(int i = 0; i < 7; i++)
+        {   btn[i] = new JFXButton();
+            //btn[i].setVisible(false);
+        }
         
         //Generating Edges
         
@@ -181,8 +190,6 @@ public class GraphViewerController implements Initializable {
         //Generating Vertices
         
         for (int i = 0; i < step; i++) {
-            
-            btn[i] = new JFXButton();
             btn[i].setLayoutX(layoutX[i]);
             btn[i].setLayoutY(layoutY[i]);
             btn[i].setPrefHeight(70);
@@ -216,6 +223,66 @@ public class GraphViewerController implements Initializable {
                     break;
             }
         }
+        
+        btn[0].setOnAction((event) -> {
+            KopaShamsuKopa(btn[0], 0);
+        });
 
+        btn[1].setOnAction((event) -> {
+           KopaShamsuKopa(btn[1], 1);
+        });
+        
+         btn[2].setOnAction((event) -> {
+            KopaShamsuKopa(btn[2], 2);
+        });
+
+        btn[3].setOnAction((event) -> {
+            KopaShamsuKopa(btn[3], 3);
+        });
+        
+         btn[4].setOnAction((event) -> {
+            KopaShamsuKopa(btn[4], 4);
+        });
+
+        btn[5].setOnAction((event) -> {
+            KopaShamsuKopa(btn[5], 5);
+        });
+        
+        btn[6].setOnAction((event) -> {
+            KopaShamsuKopa(btn[6], 6);
+        });
+
+    }
+    
+    private static int selectionCtr = 0;
+    private static int first;
+    private static JFXButton temp;
+    
+    public void KopaShamsuKopa(JFXButton btn, int i){
+        if(selection[i]){
+            btn.setStyle("-fx-background-color:"+colors[i]+"; -fx-background-radius: 35 35 35 35");
+            selection[i] = false;
+            --selectionCtr;
+        }else{
+            btn.setStyle("-fx-background-color:"+colors[i]+"; -fx-border-color:#0091EA; -fx-border-width: 3");
+            selection[i] = true;
+            
+            if(selectionCtr == 0){
+                first = i;
+                temp = btn;
+                
+                ++selectionCtr;
+                
+            }else{
+                double res = shortestPath[step][first][i];
+                System.out.println(res);
+                resultLabel.setText(Double.toString(res));
+                selection[first] = false;
+                selection[i] = false;
+                selectionCtr = 0;
+                temp.setStyle("-fx-background-color:"+colors[first]+"; -fx-background-radius: 35 35 35 35");
+                btn.setStyle("-fx-background-color:"+colors[i]+"; -fx-background-radius: 35 35 35 35");
+            }
+        }
     }
 }
