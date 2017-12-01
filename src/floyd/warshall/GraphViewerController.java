@@ -14,6 +14,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.CubicCurve;
+import javafx.scene.shape.Line;
 
 /**
  * FXML Controller class
@@ -30,27 +33,6 @@ public class GraphViewerController implements Initializable {
     private AnchorPane pane;
 
     @FXML
-    private JFXButton node1;
-
-    @FXML
-    private JFXButton node2;
-
-    @FXML
-    private JFXButton node6;
-
-    @FXML
-    private JFXButton node4;
-
-    @FXML
-    private JFXButton node3;
-
-    @FXML
-    private JFXButton node7;
-
-    @FXML
-    private JFXButton node5;
-
-    @FXML
     private JFXButton previousButton;
 
     @FXML
@@ -61,35 +43,176 @@ public class GraphViewerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        int[] layoutX = {415, 267, 576, 267, 576, 184, 646};
+        int[] layoutY = {221, 362, 362, 80, 80, 221, 221};
+        
+        final int nodeRadius = 35;
+        
+        String[] colors = {"#4A148C", "#00838F", "#2E7D32", "#283593", "#4E342E", "#37474F", "#827717"};
+        
+        JFXButton[] btn = new JFXButton[7];
+        Line[][] newEdge = new Line[7][7];
+        boolean[][] flag = new boolean[7][7];
+        
+        //Generating Edges
+        
+        for(int i = 0; i < step; i++){
+            for(int j = 0; j < step; j++){
+                    //Coordinate of starting point
+                    double x1 = layoutX[i] + nodeRadius;
+                    double y1 = layoutY[i] + nodeRadius;
+                    
+                    //Coordinate of ending point
+                    double x2 = layoutX[j] + nodeRadius;
+                    double y2 = layoutY[j] + nodeRadius;
+                    
+                if (!flag[i][j]) {
+
+                    newEdge[i][j] = new Line(x1, y1, x2, y2);
+                    
+                    if((i == 2 && j == 3) || (j == 2 && i == 3)){
+                        CubicCurve lineCurve = new CubicCurve();
+                        lineCurve.setStartX(x1);
+                        lineCurve.setStartY(y1);
+                        lineCurve.setControlX1(layoutX[0] - 70);
+                        lineCurve.setControlY1(layoutY[0] + 70);
+                        lineCurve.setControlX2(layoutX[0] + 70);
+                        lineCurve.setControlY2(layoutY[0] + 140);
+                        lineCurve.setEndX(x2);
+                        lineCurve.setEndY(y2);
+                                //layoutX[0] - 200, layoutY[0] + 150, 
+                                //x2, y2);
+                        if (shortestPath[0][i][j] != 0 && shortestPath[0][i][j] != Double.POSITIVE_INFINITY
+                                && shortestPath[0][j][i] != 0 && shortestPath[0][j][i] != Double.POSITIVE_INFINITY) {
+                            lineCurve.setStroke(Color.RED);
+                            lineCurve.setStrokeWidth(4);
+                            lineCurve.setFill(Color.web("#ffffff", 0));
+                            flag[j][i] = true;
+                            pane.getChildren().add(lineCurve);
+
+                        }else if (shortestPath[0][i][j] != 0 && shortestPath[0][i][j] != Double.POSITIVE_INFINITY) {
+                            lineCurve.setStroke(Color.web(colors[i]));
+                            lineCurve.setStrokeWidth(4);
+                            lineCurve.setFill(Color.web("#ffffff", 0));
+                            pane.getChildren().add(lineCurve);
+                        }
+                        
+                    }
+                    
+                    else if((i == 1 && j == 4) || (j == 1 && i == 4)){
+                        CubicCurve lineCurve = new CubicCurve();
+                        lineCurve.setStartX(x1);
+                        lineCurve.setStartY(y1);
+                        lineCurve.setControlX1(layoutX[0]);
+                        lineCurve.setControlY1(layoutY[0] - 40);
+                        lineCurve.setControlX2(layoutX[0]);
+                        lineCurve.setControlY2(layoutY[0] - 40);
+                        lineCurve.setEndX(x2);
+                        lineCurve.setEndY(y2);
+                                //layoutX[0] - 200, layoutY[0] + 150, 
+                                //x2, y2);
+                        if (shortestPath[0][i][j] != 0 && shortestPath[0][i][j] != Double.POSITIVE_INFINITY
+                                && shortestPath[0][j][i] != 0 && shortestPath[0][j][i] != Double.POSITIVE_INFINITY) {
+                            lineCurve.setStroke(Color.RED);
+                            lineCurve.setStrokeWidth(4);
+                            lineCurve.setFill(Color.web("#ffffff", 0));
+                            flag[j][i] = true;
+                            pane.getChildren().add(lineCurve);
+
+                        }else if (shortestPath[0][i][j] != 0 && shortestPath[0][i][j] != Double.POSITIVE_INFINITY) {
+                            lineCurve.setStroke(Color.web(colors[i]));
+                            lineCurve.setStrokeWidth(4);
+                            lineCurve.setFill(Color.web("#ffffff", 0));
+                            pane.getChildren().add(lineCurve);
+                        }
+                        
+                    }
+                    
+                    else if((i == 5 && j == 6) || (j == 5 && i == 6)){
+                        CubicCurve lineCurve = new CubicCurve();
+                        lineCurve.setStartX(x1);
+                        lineCurve.setStartY(y1);
+                        lineCurve.setControlX1(layoutX[0]);
+                        lineCurve.setControlY1(layoutY[0] - 40);
+                        lineCurve.setControlX2(layoutX[0] + 70);
+                        lineCurve.setControlY2(layoutY[0] - 40);
+                        lineCurve.setEndX(x2);
+                        lineCurve.setEndY(y2);
+
+                        if (shortestPath[0][i][j] != 0 && shortestPath[0][i][j] != Double.POSITIVE_INFINITY
+                                && shortestPath[0][j][i] != 0 && shortestPath[0][j][i] != Double.POSITIVE_INFINITY) {
+                            lineCurve.setStroke(Color.RED);
+                            lineCurve.setStrokeWidth(4);
+                            lineCurve.setFill(Color.web("#ffffff", 0));
+                            flag[j][i] = true;
+                            pane.getChildren().add(lineCurve);
+
+                        }else if (shortestPath[0][i][j] != 0 && shortestPath[0][i][j] != Double.POSITIVE_INFINITY) {
+                            lineCurve.setStroke(Color.web(colors[i]));
+                            lineCurve.setStrokeWidth(4);
+                            lineCurve.setFill(Color.web("#ffffff", 0));
+                            pane.getChildren().add(lineCurve);
+                        }
+                        
+                    }
+
+                    else if (shortestPath[0][i][j] != 0 && shortestPath[0][i][j] != Double.POSITIVE_INFINITY
+                            && shortestPath[0][j][i] != 0 && shortestPath[0][j][i] != Double.POSITIVE_INFINITY) {
+                        newEdge[i][j].setStroke(Color.RED);
+                        flag[j][i] = true;
+                        newEdge[i][j].setStrokeWidth(4);
+
+                        pane.getChildren().add(newEdge[i][j]);
+                    } else if (shortestPath[0][i][j] != 0 && shortestPath[0][i][j] != Double.POSITIVE_INFINITY) {
+                        
+                        newEdge[i][j].setStroke(Color.web(colors[i]));
+                        newEdge[i][j].setStrokeWidth(4);
+
+                        pane.getChildren().add(newEdge[i][j]);
+                    }
+
+                }
+                    
+                
+            }
+        }
+        
+        //Generating Vertices
+        
         for (int i = 0; i < step; i++) {
+            
+            btn[i] = new JFXButton();
+            btn[i].setLayoutX(layoutX[i]);
+            btn[i].setLayoutY(layoutY[i]);
+            btn[i].setPrefHeight(70);
+            btn[i].setPrefWidth(70);
+            btn[i].setTextFill(Color.WHITE);
+            btn[i].setStyle("-fx-background-color: "+colors[i]+"; -fx-background-radius: 35 35 35 35");
+            pane.getChildren().add(btn[i]);
+            
+            
             switch (i + 1) {
                 case 1:
-                    node1.setVisible(true);
-                    node1.setText(vertex[i]);
+                    btn[i].setText(vertex[i]);
                     break;
                 case 2:
-                    node2.setVisible(true);
-                    node2.setText(vertex[i]);
+                    btn[i].setText(vertex[i]);
                     break;
                 case 3:
-                    node3.setVisible(true);
-                    node3.setText(vertex[i]);
+                    btn[i].setText(vertex[i]);
                     break;
                 case 4:
-                    node4.setVisible(true);
-                    node4.setText(vertex[i]);
+                    btn[i].setText(vertex[i]);
                     break;
                 case 5:
-                    node5.setVisible(true);
-                    node5.setText(vertex[i]);
+                    btn[i].setText(vertex[i]);
                     break;
                 case 6:
-                    node6.setVisible(true);
-                    node6.setText(vertex[i]);
+                    btn[i].setText(vertex[i]);
                     break;
                 case 7:
-                    node7.setVisible(true);
-                    node7.setText(vertex[i]);
+                    btn[i].setText(vertex[i]);
                     break;
             }
         }

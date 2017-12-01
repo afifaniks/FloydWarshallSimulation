@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="floyd.warshall.GraphViewerController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floyd.warshall.GraphViewerController">
    <children>
       <StackPane prefHeight="62.0" prefWidth="900.0" style="-fx-background-color: #1A237E;">
          <children>
@@ -27,13 +26,6 @@
             <DropShadow />
          </effect>
       </StackPane>
-      <JFXButton fx:id="node1" layoutX="415.0" layoutY="221.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #004D40; -fx-background-radius: 40 40 40 40;" text="1" textFill="WHITE" visible="false" />
-      <JFXButton fx:id="node2" layoutX="267.0" layoutY="362.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #004D40; -fx-background-radius: 40 40 40 40;" text="2" textFill="WHITE" visible="false" />
-      <JFXButton fx:id="node6" layoutX="184.0" layoutY="221.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #004D40; -fx-background-radius: 40 40 40 40;" text="6" textFill="WHITE" visible="false" />
-      <JFXButton fx:id="node4" layoutX="267.0" layoutY="80.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #004D40; -fx-background-radius: 40 40 40 40;" text="4" textFill="WHITE" visible="false" />
-      <JFXButton fx:id="node3" layoutX="576.0" layoutY="362.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #004D40; -fx-background-radius: 40 40 40 40;" text="3" textFill="WHITE" visible="false" />
-      <JFXButton fx:id="node7" layoutX="646.0" layoutY="221.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #004D40; -fx-background-radius: 40 40 40 40;" text="7" textFill="WHITE" visible="false" />
-      <JFXButton fx:id="node5" layoutX="576.0" layoutY="80.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #004D40; -fx-background-radius: 40 40 40 40;" text="5" textFill="WHITE" visible="false" />
       <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="87.0" layoutY="521.0" onAction="#previousButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 30 0 0 30;" text="Previous" textFill="WHITE">
          <font>
             <Font size="14.0" />
