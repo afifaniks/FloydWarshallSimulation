@@ -52,5 +52,13 @@
             </Lighting>
          </effect>
       </Label>
+      <JFXButton fx:id="startOverButton" buttonType="RAISED" layoutX="746.0" layoutY="521.0" onAction="#startOverButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: #DD2C00;" text="Start Over" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

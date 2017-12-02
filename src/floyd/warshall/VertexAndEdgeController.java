@@ -114,6 +114,7 @@ public class VertexAndEdgeController implements Initializable {
             TableViewerController.sequence = tableGenerator.getSequence();
             GraphViewerController.vertex = vertexValue;
             GraphViewerController.shortestPath = TableViewerController.edges;
+            GraphViewerController.sequence = TableViewerController.sequence;
             GraphViewerController.step = value;
             
             AnchorPane temp = FXMLLoader.load(getClass().getResource("CategoryChooser.fxml"));
