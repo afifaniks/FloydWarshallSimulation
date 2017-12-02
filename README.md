@@ -2,10 +2,10 @@
 ## A project to simulate Floyd Warshall Algorithm ##
 
 **Graph Visualisation Sample:**
-![Graph]({{site.baseurl}}/sample1.png)
+![Graph](sample1.png)
 
 **Table Visualisation Sample:**
-![Table]({{site.baseurl}}/sample2.png)
+![Table](sample2.png)
 
 **Project Components: **
 
