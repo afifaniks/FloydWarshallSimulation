@@ -7,7 +7,7 @@
 **Table Visualisation Sample:**
 ![Table](sample2.png)
 
-**Project Components: **
+**Project Components:**
 
 - Distance Table
 - Sequence Table
