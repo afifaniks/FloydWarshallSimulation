@@ -29,7 +29,7 @@
             <DropShadow />
          </effect>
       </StackPane>
-      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="87.0" layoutY="521.0" onAction="#previousButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 30 0 0 30;" text="Previous" textFill="WHITE">
+      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="72.0" layoutY="521.0" onAction="#previousButtonAction" prefHeight="41.0" prefWidth="88.0" style="-fx-background-color: #1A237E; -fx-background-radius: 30 0 0 30;" text="Previous" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -37,22 +37,22 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label fx:id="resultLabel" alignment="CENTER" layoutX="262.0" layoutY="521.0" prefHeight="41.0" prefWidth="377.0" style="-fx-border-color: #000000;" text="Select any two vertex to see the shortest path." textFill="RED">
+      <Label fx:id="resultLabel" alignment="CENTER" layoutX="167.0" layoutY="521.0" prefHeight="41.0" prefWidth="557.0" style="-fx-border-color: #FF0005;" text="Select any two vertex to see the shortest path." textFill="#0012ff">
          <font>
-            <Font name="KacstFarsi" size="14.0" />
+            <Font size="14.0" />
          </font>
          <effect>
-            <Lighting>
+            <Lighting diffuseConstant="0.79" specularConstant="1.23" specularExponent="17.15" surfaceScale="1.98">
                <bumpInput>
                   <Shadow />
                </bumpInput>
                <light>
-                  <Light.Distant />
+                  <Light.Distant color="#3f375c" />
                </light>
             </Lighting>
          </effect>
       </Label>
-      <JFXButton fx:id="startOverButton" buttonType="RAISED" layoutX="746.0" layoutY="521.0" onAction="#startOverButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: #DD2C00;" text="Start Over" textFill="WHITE">
+      <JFXButton fx:id="startOverButton" buttonType="RAISED" layoutX="731.0" layoutY="521.0" onAction="#startOverButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: #DD2C00;" text="Start Over" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

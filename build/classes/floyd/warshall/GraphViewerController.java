@@ -221,18 +221,16 @@ public class GraphViewerController implements Initializable {
                     break;
             }
         }
-        
-                        seqGen = new double[step + 1][step + 1]; 
-                
 
-                
-                for(int x = 0; x < step + 1; x ++)
-                    for(int j = 0; j < step + 1; j++){
-                        if(x != 0 && j != 0){
-                            seqGen[x][j] = sequence[step][x - 1][j - 1];
-                        }
-                    }
-            
+        seqGen = new double[step + 1][step + 1];
+
+        for (int x = 0; x < step + 1; x++) {
+            for (int j = 0; j < step + 1; j++) {
+                if (x != 0 && j != 0) {
+                    seqGen[x][j] = sequence[step][x - 1][j - 1];
+                }
+            }
+        }
 
         btn[0].setOnAction((event) -> {
             KopaShamsuKopa(btn[0], 0);
@@ -261,8 +259,6 @@ public class GraphViewerController implements Initializable {
         btn[6].setOnAction((event) -> {
             KopaShamsuKopa(btn[6], 6);
         });
-        
-        
 
     }
 
@@ -277,14 +273,14 @@ public class GraphViewerController implements Initializable {
             --selectionCtr;
         } else {
             if (selectionCtr == 0) {
-                if(newInstance){
-                    for(int t = 0; t < step; t++){
+                if (newInstance) {
+                    for (int t = 0; t < step; t++) {
                         newInstance = false;
                         btn[t].setStyle("-fx-background-color:" + colors[t] + "; -fx-background-radius: 35 35 35 35");;
                     }
                 }
-            btnx.setStyle("-fx-background-color:" + colors[i] + "; -fx-border-color: #00BFA5; -fx-border-width: 3");
-            selection[i] = true;
+                btnx.setStyle("-fx-background-color:" + colors[i] + "; -fx-border-color: #00BFA5; -fx-border-width: 3");
+                selection[i] = true;
                 first = i;
                 temp = btnx;
 
@@ -292,14 +288,11 @@ public class GraphViewerController implements Initializable {
 
             } else {
                 double res = shortestPath[step][first][i];
-                
+
                 //TO DO FIND PATH SEQUENCE
-                
-                
                 //Genearating sequence
-                
                 String result = "";
-                
+
                 if (res != Double.POSITIVE_INFINITY) {
                     ArrayList<Integer> seq = sequenceGen(first + 1, i + 1);
 
@@ -310,29 +303,29 @@ public class GraphViewerController implements Initializable {
                         } else {
                             result += vertex[trav - 1];
                             flag++;
-                        }              
-                        
-                       btn[trav - 1].setStyle("-fx-border-color: #000000;"
-                               + " -fx-background-color:" + colors[trav - 1] + 
-                               "; -fx-background-radius: 20 0 20 0" +
-                               "; -fx-border-width: 3; -fx-border-radius: 20 0 20 0");
+                        }
+
+                        btn[trav - 1].setStyle("-fx-border-color: #000000;"
+                                + " -fx-background-color:" + colors[trav - 1]
+                                + "; -fx-background-radius: 20 0 20 0"
+                                + "; -fx-border-width: 3; -fx-border-radius: 20 0 20 0");
                     }
-                } else{
+                } else {
                     result = "No available path!";
                     btn[first].setStyle("-fx-background-color:" + colors[first] + "; -fx-background-radius: 35 35 35 35");;
-                }          
-                
+                }
+
                 resultLabel.setText("Path: " + result + "  Dist: " + Double.toString(res));
                 selection[first] = false;
                 selection[i] = false;
                 selectionCtr = 0;
                 newInstance = true;
-//                temp.setStyle("-fx-background-color:" + colors[first] + "; -fx-background-radius: 35 35 35 35");
-//                btnx.setStyle("-fx-background-color:" + colors[i] + "; -fx-background-radius: 35 35 35 35");
             }
         }
     }
 
+    //This method will find the shortest path and return it as a string
+    
     public ArrayList<Integer> sequenceGen(int x, int y) {
 
         ArrayList<Integer> res = new ArrayList<>();
