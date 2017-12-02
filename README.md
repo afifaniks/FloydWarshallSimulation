@@ -2,9 +2,11 @@
 ## A project to simulate Floyd Warshall Algorithm ##
 
 **Graph Visualisation Sample:**
-![Graph Sample]({{site.baseurl}}/https://github.com/afifaniks/FloydWarshallSimulation/blob/master/sample1.png)
+![Graph]({{site.baseurl}}/sample1.png)
+
 **Table Visualisation Sample:**
-![Table Sample]({{site.baseurl}}/https://github.com/afifaniks/FloydWarshallSimulation/blob/master/sample2.png)
+![Table]({{site.baseurl}}/sample2.png)
+
 **Project Components: **
 
 - Distance Table
