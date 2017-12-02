@@ -74,8 +74,6 @@ public class VertexAndEdgeController implements Initializable {
                 vertex[i].setUnFocusColor(Color.web("#4d4d4d"));
         }
         
-//        for(int i = 0; i < value; i++)
-//            System.out.println(vertexValue[i]);
         
         for(int i = 0; i < value; i++){
             for(int j = 0; j < value; j++){
@@ -133,7 +131,7 @@ public class VertexAndEdgeController implements Initializable {
             vertex[i] = new JFXTextField();
             vertex[i].setFocusColor(Color.web("1A237E"));
             vertex[i].setUnFocusColor(Color.web("#4d4d4d"));
-            vertex[i].setPromptText("Vertex "+ (i+1));
+            vertex[i].setText(Integer.toString(i+1));
             vertexGrid.add(vertex[i], 0, i);
         }
         
@@ -143,6 +141,12 @@ public class VertexAndEdgeController implements Initializable {
                 edges[i][j].setFocusColor(Color.web("#00838F"));
                 edges[i][j].setUnFocusColor(Color.web("#4d4d4d"));
                 edges[i][j].setPromptText("v"+(i+1)+"e"+(j+1));
+                
+                if(i == j){
+                    edges[i][j].setText("0");
+                    edges[i][j].setEditable(false);
+                }
+                
                 edgesGrid.add(edges[i][j], j, i);
             }   
     }    

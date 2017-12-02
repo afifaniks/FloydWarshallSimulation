@@ -374,6 +374,7 @@ public class TableViewerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         ctr = -1;
+        ctr2 = -1;
 
         tempPane = new Pane[steps][steps];
         seqPane = new Pane[steps][steps];

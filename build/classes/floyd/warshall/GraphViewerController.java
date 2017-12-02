@@ -32,8 +32,10 @@ public class GraphViewerController implements Initializable {
     public static double[][][] sequence;
     private double seqGen[][];
     public static int step;
+    private JFXButton[] btn = new JFXButton[7];
     private static String[] colors = {"#4A148C", "#00838F", "#2E7D32", "#283593", "#4E342E", "#37474F", "#827717"};
     public static boolean[] selection = new boolean[7];
+    private boolean newInstance = false;
 
     @FXML
     private AnchorPane pane;
@@ -67,13 +69,11 @@ public class GraphViewerController implements Initializable {
 
         final int nodeRadius = 35;
 
-        JFXButton[] btn = new JFXButton[7];
         Line[][] newEdge = new Line[7][7];
         boolean[][] flag = new boolean[7][7];
 
         for (int i = 0; i < 7; i++) {
             btn[i] = new JFXButton();
-            //btn[i].setVisible(false);
         }
 
         //Generating Edges
@@ -270,18 +270,23 @@ public class GraphViewerController implements Initializable {
     private static int first;
     private static JFXButton temp;
 
-    private void KopaShamsuKopa(JFXButton btn, int i) {
+    private void KopaShamsuKopa(JFXButton btnx, int i) {
         if (selection[i]) {
-            btn.setStyle("-fx-background-color:" + colors[i] + "; -fx-background-radius: 35 35 35 35");
+            btnx.setStyle("-fx-background-color:" + colors[i] + "; -fx-background-radius: 35 35 35 35");
             selection[i] = false;
             --selectionCtr;
         } else {
-            btn.setStyle("-fx-background-color:" + colors[i] + "; -fx-border-color:#0091EA; -fx-border-width: 3");
-            selection[i] = true;
-
             if (selectionCtr == 0) {
+                if(newInstance){
+                    for(int t = 0; t < step; t++){
+                        newInstance = false;
+                        btn[t].setStyle("-fx-background-color:" + colors[t] + "; -fx-background-radius: 35 35 35 35");;
+                    }
+                }
+            btnx.setStyle("-fx-background-color:" + colors[i] + "; -fx-border-color: #00BFA5; -fx-border-width: 3");
+            selection[i] = true;
                 first = i;
-                temp = btn;
+                temp = btnx;
 
                 ++selectionCtr;
 
@@ -292,10 +297,6 @@ public class GraphViewerController implements Initializable {
                 
                 
                 //Genearating sequence
-                
-
-                //System.out.println(seqenceGen(first + 1, i + 1));
-                //System.out.println(seqGen[first + 1][i + 1]);
                 
                 String result = "";
                 
@@ -309,18 +310,25 @@ public class GraphViewerController implements Initializable {
                         } else {
                             result += vertex[trav - 1];
                             flag++;
-                        }
+                        }              
+                        
+                       btn[trav - 1].setStyle("-fx-border-color: #000000;"
+                               + " -fx-background-color:" + colors[trav - 1] + 
+                               "; -fx-background-radius: 20 0 20 0" +
+                               "; -fx-border-width: 3; -fx-border-radius: 20 0 20 0");
                     }
                 } else{
                     result = "No available path!";
+                    btn[first].setStyle("-fx-background-color:" + colors[first] + "; -fx-background-radius: 35 35 35 35");;
                 }          
                 
                 resultLabel.setText("Path: " + result + "  Dist: " + Double.toString(res));
                 selection[first] = false;
                 selection[i] = false;
                 selectionCtr = 0;
-                temp.setStyle("-fx-background-color:" + colors[first] + "; -fx-background-radius: 35 35 35 35");
-                btn.setStyle("-fx-background-color:" + colors[i] + "; -fx-background-radius: 35 35 35 35");
+                newInstance = true;
+//                temp.setStyle("-fx-background-color:" + colors[first] + "; -fx-background-radius: 35 35 35 35");
+//                btnx.setStyle("-fx-background-color:" + colors[i] + "; -fx-background-radius: 35 35 35 35");
             }
         }
     }
@@ -330,7 +338,6 @@ public class GraphViewerController implements Initializable {
         ArrayList<Integer> res = new ArrayList<>();
 
         while ((int) seqGen[x][y] != y) {
-            // System.out.println(x + " " + y);
             res.add(x);
             x = (int) seqGen[x][y];
         }
