@@ -82,7 +82,7 @@
             </Label>
          </children>
       </Pane>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="83.0" prefHeight="16.0" prefWidth="565.0" text="Input vertex name and edge weights. Enter &quot;inp&quot; or &quot;i&quot; for Infinite value." textFill="#902323">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="83.0" prefHeight="16.0" prefWidth="565.0" text="Input vertex name and edge weights. Enter &quot;inf&quot; or &quot;i&quot; for Infinite value." textFill="#902323">
          <effect>
             <DropShadow />
          </effect>
