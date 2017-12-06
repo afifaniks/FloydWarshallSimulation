@@ -9,6 +9,8 @@
 
 **Project Components:**
 
+- Matrix Input
+- Manual Input
 - Distance Table
 - Sequence Table
 - Auto Play
