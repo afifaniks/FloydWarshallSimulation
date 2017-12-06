@@ -61,10 +61,16 @@ public class FXMLDocumentController implements Initializable {
         AnchorPane temp = null;
         
         if(matrixInput.isSelected())
-           temp  = FXMLLoader.load(getClass().getResource("VertexAndEdge.fxml"));
+        {
+            temp  = FXMLLoader.load(getClass().getResource("VertexAndEdge.fxml"));
+            CategoryChooserController.manualChecker = false;
+        }
         
         else
+        {
             temp  = FXMLLoader.load(getClass().getResource("ManualInput.fxml"));
+            CategoryChooserController.manualChecker = true;
+        }
         rootPane.getChildren().setAll(temp);
     }
 

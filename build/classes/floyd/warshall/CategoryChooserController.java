@@ -33,10 +33,16 @@ public class CategoryChooserController implements Initializable {
     
     @FXML
     private JFXButton previousButton;
+    public static boolean manualChecker = false;
     
     @FXML
     void previousButtonAction(ActionEvent event) throws IOException {
-        AnchorPane temp = FXMLLoader.load(getClass().getResource("VertexAndEdge.fxml"));
+        
+        AnchorPane temp = null;
+        if(manualChecker)
+            temp = FXMLLoader.load(getClass().getResource("ManualInput.fxml"));
+        else
+            temp = FXMLLoader.load(getClass().getResource("VertexAndEdge.fxml"));
         pane.getChildren().setAll(temp);
     }
 

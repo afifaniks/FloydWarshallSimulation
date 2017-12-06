@@ -16,13 +16,13 @@
 
 <AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="600.0" prefWidth="900.0" style="-fx-border-radius: 0 0 50 50; -fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floyd.warshall.FXMLDocumentController">
    <children>
-      <ImageView fitHeight="106.0" fitWidth="128.0" layoutX="208.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="106.0" fitWidth="128.0" layoutX="234.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../icons/Königsberg_graph.svg.png" />
          </image>
       </ImageView>
-      <JFXComboBox fx:id="vertex" focusColor="#1a237e" labelFloat="true" layoutX="505.0" layoutY="283.0" prefHeight="35.0" prefWidth="70.0" unFocusColor="#1a237e" />
-      <Label layoutX="352.0" layoutY="283.0" prefHeight="35.0" prefWidth="153.0" text="Number of Vertex:" textFill="#1a237e">
+      <JFXComboBox fx:id="vertex" focusColor="#1a237e" labelFloat="true" layoutX="531.0" layoutY="241.0" prefHeight="35.0" prefWidth="70.0" unFocusColor="#1a237e" />
+      <Label layoutX="378.0" layoutY="241.0" prefHeight="35.0" prefWidth="153.0" text="Number of Vertex:" textFill="#1a237e">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -50,7 +50,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXRadioButton fx:id="manualInput" layoutX="352.0" layoutY="420.0" text="Manual Input" textFill="#1a237e">
+      <JFXRadioButton fx:id="manualInput" layoutX="445.0" layoutY="377.0" text="Manual Input" textFill="#1a237e">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -58,12 +58,12 @@
             <ToggleGroup fx:id="inputType" />
          </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="matrixInput" layoutX="352.0" layoutY="391.0" text="Matrix Input" textFill="#1a237e" toggleGroup="$inputType">
+      <JFXRadioButton fx:id="matrixInput" layoutX="445.0" layoutY="348.0" text="Matrix Input" textFill="#1a237e" toggleGroup="$inputType">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXRadioButton>
-      <Label layoutX="235.0" layoutY="382.0" prefHeight="35.0" prefWidth="101.0" text="Input Type:" textFill="#1a237e">
+      <Label layoutX="328.0" layoutY="339.0" prefHeight="35.0" prefWidth="101.0" text="Input Type:" textFill="#1a237e">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

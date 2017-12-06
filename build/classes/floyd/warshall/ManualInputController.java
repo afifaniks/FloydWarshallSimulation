@@ -94,15 +94,7 @@ public class ManualInputController implements Initializable {
 
             if (valueTaker)
                 Arrays.fill(clicked, false);
-
-            for (int i = 0; i < steps; i++) {
-                for (int j = 0; j < steps; j++) {
-                    System.out.print(edgesValue[i][j] + " ");
-                }
-                System.out.println("");
-            }
-
-            System.out.println(row + " " + counter);
+            
             FloydWarshallAlgorithm tableGenerator = new FloydWarshallAlgorithm(steps, vertexValue, edgesValue);
 
             TableViewerController.edges = tableGenerator.getPath();
