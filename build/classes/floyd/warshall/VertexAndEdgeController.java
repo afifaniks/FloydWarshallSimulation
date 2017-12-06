@@ -68,6 +68,7 @@ public class VertexAndEdgeController implements Initializable {
                 JFXSnackbar snackbar = new JFXSnackbar(vertexPane);
                 vertex[i].setUnFocusColor(Color.web("#ff0000"));
                 snackbar.show("Vertex Field can not be Empty!", 5000);
+                valueTaker = false;
             }
             else
                 vertex[i].setUnFocusColor(Color.web("#4d4d4d"));

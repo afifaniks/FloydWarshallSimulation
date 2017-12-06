@@ -5,8 +5,8 @@
         <group>
             <file>file:/home/void/Work/Progs/Java/Floyd%20Warshall/src/floyd/warshall/GraphViewerController.java</file>
             <file>file:/home/void/Work/Progs/Java/Floyd%20Warshall/src/floyd/warshall/FXMLDocumentController.java</file>
-            <file>file:/home/void/Work/Progs/Java/Floyd%20Warshall/src/floyd/warshall/VertexAndEdgeController.java</file>
-            <file>file:/home/void/Work/Progs/Java/Floyd%20Warshall/src/floyd/warshall/CategoryChooserController.java</file>
+            <file>file:/home/void/Work/Progs/Java/Floyd%20Warshall/src/floyd/warshall/FloydWarshallAlgorithm.java</file>
+            <file>file:/home/void/Work/Progs/Java/Floyd%20Warshall/src/floyd/warshall/ManualInputController.java</file>
         </group>
     </open-files>
 </project-private>

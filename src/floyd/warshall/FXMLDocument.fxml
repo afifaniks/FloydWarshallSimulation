@@ -2,8 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
@@ -48,5 +50,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <JFXRadioButton fx:id="manualInput" layoutX="352.0" layoutY="420.0" text="Manual Input" textFill="#1a237e">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="inputType" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="matrixInput" layoutX="352.0" layoutY="391.0" text="Matrix Input" textFill="#1a237e" toggleGroup="$inputType">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXRadioButton>
+      <Label layoutX="235.0" layoutY="382.0" prefHeight="35.0" prefWidth="101.0" text="Input Type:" textFill="#1a237e">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
