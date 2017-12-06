@@ -7,7 +7,7 @@
 **Table Visualisation Sample:**
 ![Table](sample2.png)
 
-**Project Components:**
+**Features:**
 
 - Matrix Input
 - Manual Input
